@@ -14,6 +14,36 @@ function staticLoadPlaces() {
                 lat: 42.365105,
                 lng: -71.069460,
             },
+        {
+            name: 'A',
+            location: {
+            lat: 42.365106,
+            lng: -71.069460,
+            },
+        {
+            name: 'B',
+            location: {
+            lat: 42.365104,
+            lng: -71.069460,
+            },
+        {
+            name: 'C',
+            location: {
+            lat: 42.365105,
+            lng: -71.069459,
+            },
+        {
+            name: 'D',
+            location: {
+            lat: 42.365105,
+            lng: -71.069461,
+            },
+        {
+            name: 'E',
+            location: {
+            lat: 42.365104,
+            lng: -71.069459,
+            },
         },
     ];
 }
