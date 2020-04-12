@@ -5,6 +5,8 @@ const options = {
   maxSize: 10 * 1024 * 1024,
   accept: 'image/*',
   uploadInBackground: false,
+  displayMode: 'inline',
+  container: '#inline',
 };
 const picker = client.picker(options);
 
@@ -15,6 +17,9 @@ const fileInput = document.getElementById('fileupload');
 const btn = document.getElementById('picker');
 const nameBox = document.getElementById('nameBox');
 const urlBox = document.getElementById('urlBox');
+
+const openBtn = document.getElementById('open');
+const closeBtn = document.getElementById('close');
 
 // Add our event listeners
 

@@ -11,9 +11,8 @@
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
-    <script src="./home.js"></script>
     <script src="./script.js"></script>
-    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+    <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
     <script>
         const client = filestack.init(A5gk7UMLThy5xDZoT144Qz);
         client.picker().open();
@@ -21,15 +20,27 @@
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
+    <!-- Button calls function 'pickMark()' onclick now -->
+    <input type="BUTTON" value="Pick Watermark" id="pickWatermark" onclick="pickMark()">
+    <script>
+        var client = filestack.init("A5gk7UMLThy5xDZoT144Qz");
+        //The function pickMark()
+        function pickMark() {
+            console.log("Picking Watermark");
+            //Opening the file picker here
+            client.pick({
+                //Only accepting files with a mimetype 'image/*'
+                accept: 'image/*',
+                //Only accepting at most 1 file
+                maxFiles:1,
+            });
+        }
+    </script>
+
     <div class="centered instructions"></div>
     <a href="scene.html">Play</a>
     <div class="centered">
-        <button id="open">Open Picker</button>
-        <button id="close">Close Picker</button>
-        <script>
-            const openBtn = document.getElementById('open');
-            const closeBtn = document.getElementById('close');
-        </script>
+
     </div>
 </body>
 
