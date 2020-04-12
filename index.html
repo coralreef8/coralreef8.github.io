@@ -14,10 +14,6 @@
     <script src="./home.js"></script>
     <script src="./script.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css"/>
-    <!-- Filepond stylesheet -->
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <!-- Add plugin styles -->
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
@@ -25,48 +21,37 @@
     <a href="scene.html">Play</a>
     <div class="centered">
     </div>
-    <!-- We'll transform this input into a pond -->
-    <input type="file">
-    <!-- Add plugin scripts -->
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+    <style>
+      .picker-content{
+        height:300px;
+        width:200px;
+      }
+    </style>
+    <script src="//static.filestackapi.com/filestack-js/2.x.x/filestack.min.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
+        const client = filestack.init(A5gk7UMLThy5xDZoT144Qz);
 
-    <!-- Turn all file input elements into ponds -->
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script>
-    // register the plugins with FilePond
-    FilePond.registerPlugin(
-        FilePondPluginImagePreview,
-        FilePondPluginImageResize,
-        FilePondPluginImageTransform
-    );
-    FilePond.setOptions({
-    server: 'https://cdn.image4.io/coralreef8'
-    });
-    const inputElement = document.querySelector('input[type="file"]');
-    const pond = FilePond.create(inputElement, {
-        imageResizeTargetWidth: 256,
-        // set contain resize mode
-        imageResizeMode: 'contain',
-        onaddfile: (err, fileItem) => {
-            console.log(err, fileItem.getMetadata('resize'));
-        },
+        let options = {
+          "displayMode": "inline",
+          "container": ".picker-content",
+          "accept": [
+            "image/jpeg",
+            "image/jpg",
+            "image/png"
+          ],
+          "fromSources": [
+            "local_file_system"
+          ],
+          "uploadInBackground": false,
+          "onUploadDone": (res) => console.log(res),
+        };
 
-        // add onpreparefile callback
-        onpreparefile: (fileItem, output) => {
-            // create a new image object
-            const img = new Image();
-
-            // set the image source to the output of the Image Transform plugin
-            img.src = URL.createObjectURL(output);
-
-            // add it to the DOM so we can see the result
-            document.body.appendChild(img);
-        }
-
-    });
+        picker = client.picker(options);
+        picker.open();
+      });
     </script>
+    <div class="picker-content"></div>
 </body>
 
 </html>
