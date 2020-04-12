@@ -21,11 +21,12 @@
 
 <body style='margin: 0; overflow: hidden;'>
     <div class="centered instructions"></div>
+    <div class="centered">
     <a href="scene.html">Play</a>
-
     <!-- We'll transform this input into a pond -->
     <input type="file" class="filepond">
-
+    <button data-action="change"></button>
+    </div>
     <!-- Turn all file input elements into ponds -->
     <script>
     FilePond.parse(document.body);
