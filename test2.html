@@ -1,37 +1,60 @@
-<html>
-<head>
-    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<!--
-    aframe-extras loaders is needed in order to add glTF models (And a whole lot of other model formats) into your AR Project.
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+            <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+            <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
-    If your project requires multiple model types to be inluded use aframe-extras.loaders.min.js
-    Get it here: https://github.com/donmccurdy/aframe-extras/tree/master/dist
+            <style>
+              .arjs-loader {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 9999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
 
-    If your project only requires one model format to be included, use the specific library you require
-    Get it here: https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders
-    NOTE: From aframe 0.7.0 glTF 2.0 will be directly supported and would not require any seperate loader files.
--->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    </head>
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded artoolkit='sourceType: webcam;'>
-    <!--
-      glTF 2.0 Model - busterDrone.gltf
-      Using the default hiro marker (Get it below)
-      https://github.com/akashkuttappa/armodels/raw/master/markers/hiro.jpg
-    -->
-    <a-marker preset='hiro'>
-      <a-entity
-      id="drone"
-      position="0 0 0"
-      scale="1 1 1"
-      gltf-model-next="src: url(./busterDrone.gltf);"
-      animation-mixer>
-      </a-entity>
-    </a-marker>
-
-    <a-entity camera></a-entity>
-  </a-scene>
-</body>
+              .arjs-loader div {
+                text-align: center;
+                font-size: 1.25em;
+                color: white;
+              }
+            </style>
+        </head>
+        <body style="margin : 0px; overflow: hidden;">
+          <!-- minimal loader shown until image descriptors are loaded -->
+          <div class="arjs-loader">
+            <div>Loading, please wait...</div>
+          </div>
+          <a-scene
+            vr-mode-ui="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            embedded
+            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+          >
+            <!-- we use cors proxy to avoid cross-origin problems -->
+            <a-nft
+              type="nft"
+              url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/bespara/bespara-image/bespara"
+              smooth="true"
+              smoothCount="10"
+              smoothTolerance=".01"
+              smoothThreshold="5"
+            >
+              <a-entity
+                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/2020-04-12--17-40-08.gltf"
+                scale="5 5 5"
+                position="50 150 0"
+              >
+              </a-entity>
+            </a-nft>
+            <a-entity camera></a-entity>
+          </a-scene>
+      </body>
 </html>
