@@ -1,16 +1,16 @@
 <html>
   <head>
     <title>ARjs with basic 3D</title>
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
 );
 
  </head>
-<!-- include ar.js for A-Frame -->
-<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<!-- we import arjs version without NFT but with marker + location based support -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs>
     <!-- create your content here. just a box for now -->
-    <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.obj" mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.mtl" scale="25 25 25" position="0 0 0" rotation="-90 0 0" />
+    <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.obj" mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.mtl" scale="25 25 25" position="50 150 0" rotation="-90 0 0" />
     <!-- define a camera which will move according to the marker position -->
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
