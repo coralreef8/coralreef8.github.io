@@ -6,6 +6,14 @@
   <script>
     window.onload = function() {
       AudioMode().playAudio("f1",2000);
+      document
+          .querySelector(".say-hi-button")
+          .addEventListener("click", function() {
+              document.getElementById("sound").play();
+            // here you can change also a-scene or a-entity properties, like
+            // changing your 3D model source, size, position and so on
+            // or you can just open links, trigger actions...
+          });
       };
     function AudioMode()
         {
@@ -15,17 +23,9 @@
                     //however the document.getElementById is not find it???
                     document.getElementById("sound").play();
 
-            }
-        }
-    document
-        .querySelector(".say-hi-button")
-        .addEventListener("click", function() {
-            document.getElementById("sound").play();
-          // here you can change also a-scene or a-entity properties, like
-          // changing your 3D model source, size, position and so on
-          // or you can just open links, trigger actions...
-        });
-
+            };
+        };
+        
   </script>
   <style>
     .buttons {
