@@ -18,8 +18,8 @@
     <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
       <a-assets>
         <video id="vidyo" autoplay loop="true" muted="true" src="assets/seviyorum.mp4" border-radius="50px"></video>
-        <audio id="vidsound" src="assets/seviyorumsound.mp3" preload="auto"></audio>
-        <audio id="sound" src="assets/asigim.mp3" preload="auto"></audio>
+        <audio id="vidsound" loop="true" src="assets/seviyorumsound.mp3" preload="auto"></audio>
+        <audio id="sound" loop="true" src="assets/asigim.mp3" preload="auto"></audio>
       </a-assets>
       <a-marker preset="hiro">
         <a-video src="#vidyo" position="0.51 0.01 0" rotation="0 0 0" play="true" width="2.18" height="1.21"></a-video>
