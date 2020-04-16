@@ -6,7 +6,8 @@
   <script>
     window.onload = function() {
       AudioMode().playAudio("f1",2000);
-      function AudioMode()
+      };
+    function AudioMode()
         {
             this.playAudio = function(key,delay)
             {
@@ -16,7 +17,7 @@
 
             }
         }
-      document
+    document
         .querySelector(".say-hi-button")
         .addEventListener("click", function() {
             document.getElementById("sound").play();
@@ -24,7 +25,7 @@
           // changing your 3D model source, size, position and so on
           // or you can just open links, trigger actions...
         });
-    };
+
   </script>
   <style>
     .buttons {
