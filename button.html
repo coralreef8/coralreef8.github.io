@@ -8,7 +8,7 @@
         document
           .querySelector(".say-hi-button")
           .addEventListener("click", function() {
-              alert("sound");
+              ///alert("sound");
               document.getElementById("sound").play();
             // here you can change also a-scene or a-entity properties, like
             // changing your 3D model source, size, position and so on
@@ -47,12 +47,20 @@
           type="audio/mpeg" />
       </audio>
     </div>
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
-          <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj"
-          mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
-          scale="2 2 2" position="0 1.5 -1" rotation="0 0 0" />
-      </a-marker>
+    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+        <a-nft
+          type="nft"
+          url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/bespara/bespara-image/bespara"
+          smooth="true"
+          smoothCount="10"
+          smoothTolerance=".01"
+          smoothThreshold="5"
+        >
+          <a-entity>
+              <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj" mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
+              scale="500 500 500" position="50 150 0" rotation="0 0 0" />
+          </a-entity>
+        </a-nft>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
