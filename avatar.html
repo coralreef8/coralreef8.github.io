@@ -14,13 +14,13 @@
     mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
     scale="2 2 2" position="0 1.5 -1" rotation="0 0 0" />
     <a-entity cursor position="0 1.5 -1"></a-entity>
-    <!--a-sound src="src: url(https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3)"
-    autoplay="true" loop="true" position="0 2 5"></a-sound-->
+    <!---a-sound src="src: url(https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3)"
+    autoplay="true" loop="true" position="0 2 5"></a-sound--->
     <!-- define a camera which will move according to the marker position -->
     <a-assets>
-    <audio id="ask" src="src: url(https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3)" preload="auto"></audio>
+        <audio id="ask" src="src: url(https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3)" preload="auto"></audio>
     </a-assets>
-    <a-entity sound ="src: url(https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3); on:click"></a-entity>
+    <a-entity sound ="src: #ask; on:click"></a-entity>
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
 </body>
