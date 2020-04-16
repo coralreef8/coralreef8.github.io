@@ -4,14 +4,15 @@
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <script>
+    const mySound = document.getElementById("sound");
     window.onload = function() {
       document
         .querySelector(".say-hi-button")
         .addEventListener("click", function() {
+            mySound.play();
           // here you can change also a-scene or a-entity properties, like
           // changing your 3D model source, size, position and so on
           // or you can just open links, trigger actions...
-          $('#audio').html('<audio autoplay><source src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3"></audio>');
         });
     };
   </script>
@@ -39,11 +40,16 @@
     }
   </style>
   <body style="margin : 0px; overflow: hidden;">
+    <audio id="sound">
+        <source src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3" />   
+    </audio>
     <div class="buttons">
       <button class="say-hi-button">SAY HI!</button>
     </div>
-    <span id="audio"></span>
     <a-scene embedded arjs>
+      <a-assets>
+        <audio id="soundtrack" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3" preload="auto"></audio>
+      </a-assets>
       <a-marker preset="hiro">
           <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj"
           mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
@@ -52,4 +58,10 @@
       <a-entity camera></a-entity>
     </a-scene>
   </body>
+  <script>
+    const mySound = document.getElementById("sound");
+    const correctButton = document.getElementById("correct");
+    var audio = new Audio('https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3');
+
+  </script>
 </html>
