@@ -47,9 +47,6 @@
       <button class="say-hi-button">SAY HI!</button>
     </div>
     <a-scene embedded arjs>
-      <a-assets>
-        <audio id="soundtrack" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3" preload="auto"></audio>
-      </a-assets>
       <a-marker preset="hiro">
           <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj"
           mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
@@ -58,10 +55,4 @@
       <a-entity camera></a-entity>
     </a-scene>
   </body>
-  <script>
-    const mySound = document.getElementById("sound");
-    const correctButton = document.getElementById("correct");
-    var audio = new Audio('https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3');
-
-  </script>
 </html>
