@@ -11,7 +11,7 @@
           // here you can change also a-scene or a-entity properties, like
           // changing your 3D model source, size, position and so on
           // or you can just open links, trigger actions...
-          document.getElementById('myAudio').play();
+          $('#audio').html('<audio autoplay><source src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3"></audio>');
         });
     };
   </script>
@@ -42,7 +42,7 @@
     <div class="buttons">
       <button class="say-hi-button">SAY HI!</button>
     </div>
-    <audio id="myAudio" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3"></audio>
+    <span id="audio"></span>
     <a-scene embedded arjs>
       <a-marker preset="hiro">
           <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj"
