@@ -18,10 +18,12 @@
     <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
       <a-assets>
         <video id="vidyo" autoplay loop="true" muted="true" src="assets/seviyorum.mp4" border-radius="50px"></video>
+        <audio id="vidsound" src="assets/seviyorumsound.mp3" preload="auto"></audio>
         <audio id="sound" src="assets/asigim.mp3" preload="auto"></audio>
       </a-assets>
       <a-marker preset="hiro">
         <a-video src="#vidyo" position="0.51 0.01 0" rotation="0 0 0" play="true" width="2.18" height="1.21"></a-video>
+        <a-entity sound="src: #vidsound"></a-entity>
         <a-entity sound="src: #sound"></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
@@ -31,37 +33,39 @@
 
       var playing = false;
       var audioPlaying = false;
+      var soundPlaying = false;
 
       document.querySelector(".say-hi-button").addEventListener('click', function () {
       var v = document.querySelector('#vidyo');
+      var audio = document.querySelector('#vidsound');
       //var audio = document.querySelector('#sound');
       if(playing == false){
         v.play();
-        //audio.play();
+        audio.play();
         playing = true;
-        //audioPlaying = true;
+        audioPlaying = true;
       }else{
         v.pause();
-        //audio.pause();
+        audio.pause();
         playing = false;
-        //audioPlaying = false;
+        audioPlaying = false;
       }
 
       });
 
       document.querySelector(".say-bye-button").addEventListener('click', function () {
       //var v = document.querySelector('#vidyo');
-      var audio = document.querySelector('#sound');
-      if(playing == false){
+      var soundaudio = document.querySelector('#sound');
+      if(soundPlaying == false){
         //v.play();
-        audio.play();
+        soundaudio.play();
         //playing = true;
-        audioPlaying = true;
+        soundPlaying = true;
       }else{
         //v.pause();
-        audio.pause();
+        soundaudio.pause();
         //playing = false;
-        audioPlaying = false;
+        soundPlaying = false;
       }
 
       });
