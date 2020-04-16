@@ -1,71 +1,103 @@
-<!DOCTYPE>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
-    <title>Sound Demo</title>
-    <meta name="description" content="Audio Button Demo">
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-  </head>
-  <body>
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+            <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+            <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+            <script>
+              window.onload = function() {
+                  document
+                    .querySelector(".say-hi-button")
+                    .addEventListener("click", function() {
+                        ///alert("sound");
+                        document.getElementById("sound").play();
+                      // here you can change also a-scene or a-entity properties, like
+                      // changing your 3D model source, size, position and so on
+                      // or you can just open links, trigger actions...
+                    });
+                }
+            </script>
+            <style>
+              .arjs-loader {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 9999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
 
-<a-scene background="blue">
-  <a-assets>
-    <img id="soundButton" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/sound.png" >
-    <img id="soundOffButton" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/soundOff.png" >
-    <audio id="soundtrack" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3" preload="auto"></audio>
-  </a-assets>
+              .arjs-loader div {
+                text-align: center;
+                font-size: 1.25em;
+                color: white;
+              }
 
-  <a-sky color="#00AEEF"></a-sky>
+              .buttons {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+              }
 
-  <a-plane class="link" id="sButton" src="#soundOffButton" height="40" width="40" rotation="0 0 0" position="0 0 -300" material="transparent:true"
-          event-set__1="_event: mousedown; scale: 1 1 1"
-          event-set__2="_event: mouseup; scale: 1.2 1.2 1"
-          event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
-          event-set__4="_event: mouseleave; scale: 1 1 1">
-      </a-plane>
-  <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj" mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
-    scale="2 2 2" position="0 1.5 -1" rotation="0 0 0" />
-
-  <a-entity camera look-controls>
-        <a-cursor id="cursor"
-          color="white"
-
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__1="_event: mouseenter; color: cyan"
-          event-set__2="_event: mouseleave; color: white"
-          fuse="true"
-          raycaster="objects: .link"></a-cursor>
-  </a-entity>
-
-
-</a-scene>
-
-
-<script>
-
-  var sbutt = document.querySelector('#sButton');
-  var strack = document.querySelector('#soundtrack');
-
-  sbutt.addEventListener('mouseenter', playButtonAudio);
-
-  var scene = document.querySelector('a-scene');
-  if (scene.hasLoaded) {
-    playButtonAudio();
-    } else {
-      scene.addEventListener('click', playButtonAudio);
-  }
-
-  function playButtonAudio () {
-    if (strack.paused) {
-      strack.play();
-      sbutt.setAttribute('material', "src: #soundButton");
-    } else {
-      strack.pause();
-      sbutt.setAttribute('material', "src: #soundOffButton");
-    }
-  }
-
-
-
-</script>
+              .say-hi-button {
+                padding: 0.25em;
+                border-radius: 4px;
+                border: none;
+                background: white;
+                color: black;
+                width: 4em;
+                height: 2em;
+              }
+            </style>
+        </head>
+        <body style="margin : 0px; overflow: hidden;">
+          <!-- minimal loader shown until image descriptors are loaded -->
+          <div class="arjs-loader">
+            <div>Loading, please wait...</div>
+          </div>
+          <div class="buttons">
+            <button class="say-hi-button">SAY HI!</button>
+            <audio id="sound">
+                <source src="https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </div>
+          <a-scene
+            vr-mode-ui="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            embedded
+            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+          >
+            <!-- we use cors proxy to avoid cross-origin problems -->
+            <a-nft
+              type="nft"
+              url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/bespara/bespara-image/bespara"
+              smooth="true"
+              smoothCount="10"
+              smoothTolerance=".01"
+              smoothThreshold="5"
+            >
+              <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.obj" mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.mtl"
+              scale="500 500 500" position="50 150 0" rotation="0 0 0" />
+              <!--a-entity
+                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+                scale="5 5 5"
+                position="50 150 0"
+              >
+          </a-entity--->
+            </a-nft>
+            <a-entity camera></a-entity>
+          </a-scene>
+      </body>
+</html>
