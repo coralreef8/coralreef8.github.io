@@ -10,7 +10,12 @@
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs>
     <!-- create your content here. just a box for now -->
-    <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.obj" mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/CanModel/model.mtl" scale="25 25 25" position="50 150 0" rotation="-90 0 0" />
+    <a-obj-model src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.obj"
+    mtl="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/MerveModel/model.mtl"
+    scale="2 2 2" position="0 1.5 -1" rotation="0 0 0" />
+    <a-entity cursor position="0 1.5 -1"></a-entity>
+    <a-sound src="src: url(https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3)"
+    autoplay="true" loop="true" position="0 2 5"></a-sound>
     <!-- define a camera which will move according to the marker position -->
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
