@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Avatar and Sound</title>
             <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
             <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
@@ -32,12 +32,14 @@
           <div class="arjs-loader">
             <div>Loading, please wait...</div>
           </div>
-          <a-scene
+          <!---a-scene
             vr-mode-ui="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
             embedded
             arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-          >
+        --->
+        <a-scene
+          embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
             <!-- we use cors proxy to avoid cross-origin problems -->
             <a-nft
               type="nft"
@@ -55,6 +57,33 @@
                 position="50 150 0"
               >
           </a-entity--->
+            <a-assets>
+                <img id="soundButton" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/sound.png" >
+                <img id="soundOffButton" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/soundOff.png" >
+                <audio id="soundtrack" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/coralreef8/coralreef8.github.io/master/assets/asigim.mp3" preload="auto"></audio>
+            </a-assets>
+
+            <a-sky color="#00AEEF"></a-sky>
+
+            <a-plane class="link" id="sButton" src="#soundOffButton" height="40" width="40" rotation="0 0 0" position="0 0 -300" material="transparent:true"
+                  event-set__1="_event: mousedown; scale: 1 1 1"
+                  event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                  event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                  event-set__4="_event: mouseleave; scale: 1 1 1">
+              </a-plane>
+
+
+              <a-entity camera look-controls>
+                <a-cursor id="cursor"
+                  color="white"
+
+                  animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                  event-set__1="_event: mouseenter; color: cyan"
+                  event-set__2="_event: mouseleave; color: white"
+                  fuse="true"
+                  raycaster="objects: .link"></a-cursor>
+              </a-entity>
+
             </a-nft>
             <a-entity camera></a-entity>
           </a-scene>
