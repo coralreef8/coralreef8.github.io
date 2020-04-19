@@ -92,16 +92,19 @@
               <a-entity
               gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/YuruyenMerve/YuruyenMerve.gltf"
               scale="100 100 100"
+              position="-200 150 -200"
+              animation-mixer="loop:repeat"
+              animation="property: rotation; dur: 2000; to: 0 180 0; loop: true; dir:alternate"
+              animation__2="property: position; dur:2000; to: 200 150 200; loop:true; dir:alternate"
+              >
+              </a-entity>
+              <!--a-entity
+              gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/coralreef8/coralreef8.github.io/master/assets/YuruyenMerve/YuruyenMerve.gltf"
+              scale="100 100 100"
               position="50 150 -400"
               animation-mixer="loop:repeat"
               animation="property: rotation; dur: 4000; to: 0 360 0; loop: true"
               animation__2="property: position; dur:2000; to: 350 150 -100; loop:true; dir:alternate"
-              >
-              </a-entity>
-              <!--a-entity
-                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-                scale="5 5 5"
-                position="50 150 0"
               >
           </a-entity--->
             </a-nft>
